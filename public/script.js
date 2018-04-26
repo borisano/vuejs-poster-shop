@@ -7,9 +7,13 @@ new Vue({
       {id: 2, title: 'item 2', price: 2.45},
       {id: 3, title: 'item 3', price: 3.21}
     ],
-    cart: []
+    cart: [],
+    search: ''
   },
   methods: {
+    onSubmit: function(){
+      console.log(this.search)
+    },
     addItem: function(index){
       var item = this.items[index];
 
@@ -18,6 +22,7 @@ new Vue({
         if(this.cart[i].id == item.id) {
           this.cart[i].quantity++;
           existingItem = true;
+          break;
         }
       }
 
@@ -45,6 +50,7 @@ new Vue({
         for(i=0; i<this.cart.length; i++) {
           if(this.cart[0].id == item.id) {
             this.cart.splice(i,1);
+            break;
           }
         }
       }

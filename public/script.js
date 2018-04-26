@@ -31,6 +31,23 @@ new Vue({
       }
 
       this.total += item.price;
+    },
+    inc: function(item) {
+      item.quantity++;
+      this.total += item.price;
+    },
+    dec: function(item) {
+      item.quantity--;
+      this.total -= item.price;
+
+      if(item.quantity < 1) { // If it was the last item
+        // Remove particular item from cart
+        for(i=0; i<this.cart.length; i++) {
+          if(this.cart[0].id == item.id) {
+            this.cart.splice(i,1);
+          }
+        }
+      }
     }
   },
   filters: {

@@ -35,6 +35,8 @@
                     <span class="item-qty">
                         {{ item.price | currency }} x {{ item.quantity }}
                     </span>
+                    <button v-on:click="inc(item)" class="btn">+</button>
+                    <button v-on:click="dec(item)" class="btn">-</button>
                 </li>
             </ul>
             <div v-if="cart.length">

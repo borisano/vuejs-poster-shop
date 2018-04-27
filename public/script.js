@@ -2,17 +2,16 @@ new Vue({
   el: '#app',
   data: {
     total: 0,
-    items: [
-      {id: 1, title: 'item 1', price: 9.09},
-      {id: 2, title: 'item 2', price: 2.45},
-      {id: 3, title: 'item 3', price: 3.21}
-    ],
+    items: [],
     cart: [],
     search: ''
   },
   methods: {
     onSubmit: function(){
-      console.log(this.search)
+      this.$http.get('/search/' + this.search)
+        .then(function(res){
+          this.items = res.data
+      })
     },
     addItem: function(index){
       var item = this.items[index];

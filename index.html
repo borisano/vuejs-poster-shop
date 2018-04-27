@@ -24,9 +24,10 @@
     </div>
     <div class="main">
         <div class="products">
-            <div v-if="lastsearch.length" class="search-results">
+            <div v-if="!loading" class="search-results">
                 Found {{items.length}} results for search term {{lastsearch}}
             </div>
+            <div v-else>Loading...</div>
             <div class="product" v-for="(item, index) in items">
                 <div>
                     <div class="product-image">

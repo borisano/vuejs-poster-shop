@@ -4,7 +4,7 @@ new Vue({
     total: 0,
     items: [],
     cart: [],
-    search: '',
+    search: 'ferret',
     lastsearch: '',
     loading: false
   },
@@ -66,5 +66,8 @@ new Vue({
 
       return '$'+ price.toFixed(2);
     }
+  },
+  mounted: function(){
+    this.onSubmit();
   }
 });

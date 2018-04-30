@@ -3,6 +3,7 @@ new Vue({
   data: {
     total: 0,
     items: [],
+    price: 9.99,
     cart: [],
     search: 'ferret',
     lastsearch: '',
@@ -35,12 +36,12 @@ new Vue({
         this.cart.push({
           id: item.id,
           title: item.title,
-          price: item.price,
+          price: this.price,
           quantity: 1
         });
       }
 
-      this.total += item.price;
+      this.total += this.price;
     },
     inc: function(item) {
       item.quantity++;
